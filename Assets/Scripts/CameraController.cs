@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
 
         if (other.CompareTag("Waypoint"))
         {
-            LevelManager.WayPoints.Add(other.transform);
+            LevelManager.Waypoints.Add(other.transform);
         }
     }
 
@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
 
         if (other.CompareTag("Waypoint"))
         {
-            LevelManager.WayPoints.Remove(other.transform);
+            LevelManager.Waypoints.Remove(other.transform);
         }
     }
 }

@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: FourthBackground
+    uniqueID: 833278413
+    locked: 0
   - name: ThirdBackground
     uniqueID: 645656331
     locked: 0
