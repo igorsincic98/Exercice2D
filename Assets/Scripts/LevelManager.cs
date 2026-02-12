@@ -25,6 +25,8 @@ public class LevelManager : MonoBehaviour {
     }
 
     private void Start() {
+        if (Chunks.Count == 0) return;
+        
         for (int i = 0; i <= _chunkNumber; i++) {
             GameObject chunk = Chunks[Random.Next(0, Chunks.Count)];
             Instantiate(chunk, Vector3.up * (i * _chunkGap),  Quaternion.identity, transform);
@@ -37,8 +39,11 @@ public class LevelManager : MonoBehaviour {
 
         // Spawner
         _spawnTimer += Time.deltaTime;
-        if (_spawnTimer >= _spawnRate) {
+        if (_spawnTimer >= _spawnRate)
+        {
+            Debug.Log("Spawning ?");
             if (Waypoints.Count == 0 || SpawnPoints.Count == 0) return;
+            Debug.Log("Spawning !");
             
             Transform rndPoint = SpawnPoints[Random.Next(0, SpawnPoints.Count)];
             GameObject instantiate = Instantiate(_prefab, rndPoint.position, rndPoint.rotation, rndPoint);

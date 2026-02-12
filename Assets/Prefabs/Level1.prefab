@@ -26356,7 +26356,7 @@ MonoBehaviour:
   Chunks: []
   _levelSpeed: 3
   _prefab: {fileID: 3253118602401268790, guid: ac9b862e1e5ca7148a91a9f2643431ca, type: 3}
-  _spawnRate: 3
+  _spawnRate: 2
 --- !u!1001 &810292720552893189
 PrefabInstance:
   m_ObjectHideFlags: 0

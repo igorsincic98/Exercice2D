@@ -18,18 +18,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _waitTimer;
     [SerializeField] private float _waitDuration = -1;
     [SerializeField] private int _minWaitDuration = 1;
-    [SerializeField] private int _maxWaitDuration = 5;
-    
-    private static System.Random _random;
+    [SerializeField] private int _maxWaitDuration = 2;
 
     public void Setup(List<Transform> waypoints)
     {
-
         _waypoints = waypoints;
         if (_currentwaypoint == null)
             _currentwaypoint = _waypoints[_waypointIndex];
-        if (_random == null) 
-            _random = new System.Random(_seed.GetHashCode());
     }
     private void Start()
     {
@@ -44,7 +39,7 @@ public class EnemyController : MonoBehaviour
         {
             if (_waitDuration < 0 )
             { 
-                _waitDuration = _random.Next(_minWaitDuration, _maxWaitDuration);
+                _waitDuration = LevelManager.Random.Next(_minWaitDuration, _maxWaitDuration);
             }
             if (_waitTimer >= _waitDuration)
             {
@@ -74,12 +69,22 @@ public class EnemyController : MonoBehaviour
 
     private Transform NextRandomWaypoint()
     {
-        _waypointIndex = _random.Next(0, _waypoints.Count);
+        _waypointIndex = LevelManager.Random.Next(0, _waypoints.Count);
         return _waypoints[_waypointIndex];
     }
 
     private void DestroyMe()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        PlayerController target = other.GetComponent<PlayerController>();
+        if (target != null)
+        {
+            target.TakeDamage(1);
+        }
+
     }
 }

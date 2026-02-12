@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _currentHealth;
+    [SerializeField] private float _maxHealth;
     private CharacterController _characterController;
     private Vector3 _move;
     private void Awake()
@@ -24,5 +26,14 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = input.Get<Vector2>();
         _move.x = movement.x;
         _move.y = movement.y;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

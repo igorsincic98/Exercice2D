@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff6569e980e3764687d1c989f870661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _moveSpeed: 5
+  _moveSpeed: 7
   _seed: 0
-  _lifeTime: 10
+  _lifeTime: 5
   _waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
   _waitTimer: 0
   _waitDuration: -1
   _minWaitDuration: 1
-  _maxWaitDuration: 5
+  _maxWaitDuration: 2
 --- !u!58 &8952930108318303955
 CircleCollider2D:
   m_ObjectHideFlags: 0
