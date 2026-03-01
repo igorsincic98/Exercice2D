@@ -78,8 +78,9 @@ public class EnemyController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        //Debug.Log(other.name);
         PlayerController target = other.GetComponent<PlayerController>();
         if (target != null)
         {

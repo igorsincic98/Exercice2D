@@ -40,10 +40,10 @@ public class LevelManager : MonoBehaviour {
         // Spawner
         _spawnTimer += Time.deltaTime;
         if (_spawnTimer >= _spawnRate)
-        {
-            Debug.Log("Spawning ?");
+        { 
+            //Debug.Log("Spawning ?");
             if (Waypoints.Count == 0 || SpawnPoints.Count == 0) return;
-            Debug.Log("Spawning !");
+            //Debug.Log("Spawning !");
             
             Transform rndPoint = SpawnPoints[Random.Next(0, SpawnPoints.Count)];
             GameObject instantiate = Instantiate(_prefab, rndPoint.position, rndPoint.rotation, rndPoint);

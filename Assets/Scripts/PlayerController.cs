@@ -7,25 +7,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _currentHealth;
     [SerializeField] private float _maxHealth;
-    private CharacterController _characterController;
-    private Vector3 _move;
+    public static Vector2 Movement;
+    private PlayerInput _playerInput;
+    private InputAction _moveAction;
+    
     private void Awake()
     {
-        _characterController = GetComponent<CharacterController>();
+        _playerInput = GetComponent<PlayerInput>();
+        _moveAction = _playerInput.actions["Move"];
+
     }
 
     private void Update()
     {
-        Vector3 moveDirection = transform.TransformDirection(_move);
-        moveDirection *= _moveSpeed;
-        _characterController.Move(moveDirection * Time.deltaTime);
-    }
-
-    private void OnMove(InputValue input)
-    {
-        Vector2 movement = input.Get<Vector2>();
-        _move.x = movement.x;
-        _move.y = movement.y;
+        Movement = _moveAction.ReadValue<Vector2>();
     }
 
     public void TakeDamage(float damage)
