@@ -43,4 +43,10 @@ public class GameManager : MonoBehaviour
     {
         nextLevelUI.SetActive(true);
     }
+
+    public void _loadLevel2()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 }

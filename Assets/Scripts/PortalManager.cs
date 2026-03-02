@@ -21,7 +21,7 @@ public class PortalManager : MonoBehaviour
     {
         if (_isOpen)
         {
-            _gameManager.nextLevel;
+            _gameManager._nextLevel();
         }
     }
 }
