@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject gameOverUI;
+
+    public GameObject nextLevelUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,5 +37,10 @@ public class GameManager : MonoBehaviour
     public void _restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void _nextLevel()
+    {
+        nextLevelUI.SetActive(true);
     }
 }

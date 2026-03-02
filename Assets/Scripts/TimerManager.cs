@@ -5,6 +5,7 @@ public class TimerManager : MonoBehaviour
 {
     [SerializeField] private float _timer = 0f;
     [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] GameObject _portal;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
