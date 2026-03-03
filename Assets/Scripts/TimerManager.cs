@@ -17,9 +17,9 @@ public class TimerManager : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer >= 60f)
+        if (_timer >= 10f)
         {
-            
+            _portal.SetActive(true);
         }
 
         int minutes = Mathf.FloorToInt(_timer / 60f);

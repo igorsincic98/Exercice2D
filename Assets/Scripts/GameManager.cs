@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public void _restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Play();
     }
 
     public void _nextLevel()
@@ -47,6 +48,17 @@ public class GameManager : MonoBehaviour
     public void _loadLevel2()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Play();
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void Play()
+    {
+        Time.timeScale = 1;
     }
 
 }

@@ -19,8 +19,10 @@ public class PortalManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_isOpen)
+        if ((other.gameObject.CompareTag("Player")) && (_isOpen))
         {
+            _gameManager.Pause();
+            Debug.Log(other.gameObject.name);
             _gameManager._nextLevel();
         }
     }

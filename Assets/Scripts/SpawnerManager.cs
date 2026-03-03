@@ -9,17 +9,21 @@ public class SpawnerManager : MonoBehaviour
     public GameObject _prefab;
     [SerializeField]
     public int _spawnRate;
+    [SerializeField]
+    public int _spawnRateMin;
+    [SerializeField]
+    public int _spawnRateMax;
     private float _spawnTimer;
     [SerializeField]
     private Transform[] _spawnPoints;
-    public static Random Random;
+    public Random Random = new Random();
 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        _spawnRate = Random.Next(_spawnRateMin, _spawnRateMax);
     }
 
     // Update is called once per frame
@@ -28,12 +32,14 @@ public class SpawnerManager : MonoBehaviour
         _spawnTimer += Time.deltaTime;
         if (_spawnTimer >= _spawnRate)
         {
-            Debug.Log("Spawning ?");
             //Transform rndPoint = Spawners[Random.Next(0, Spawners.Count)];
-            Transform randomPoint = _spawnPoints[Random.Next(0, _spawnPoints.Length)]; 
+            
+            int random = Random.Next(0, _spawnPoints.Length);
+            Transform randomPoint = _spawnPoints[random]; 
             GameObject instantiated = Instantiate(_prefab);
             instantiated.transform.position = randomPoint.position;
-            Debug.Log("Spawning !");
+            _spawnTimer = 0;
+            _spawnRate = Random.Next(_spawnRateMin, _spawnRateMax);
 
 
 
