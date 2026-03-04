@@ -6,6 +6,7 @@ public class TimerManager : MonoBehaviour
     [SerializeField] private float _timer = 0f;
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] GameObject _portal;
+    [SerializeField] PortalManager _portalManager;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,9 +18,9 @@ public class TimerManager : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer >= 10f)
+        if (_timer >= 60f)
         {
-            _portal.SetActive(true);
+            _portalManager.OpenPortal();
         }
 
         int minutes = Mathf.FloorToInt(_timer / 60f);

@@ -142,3 +142,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpManager
   _score: 0
+  _pickUpSound: {fileID: 8300000, guid: c9a9c65f86d065e4ba5f3d6ef352d1d4, type: 3}

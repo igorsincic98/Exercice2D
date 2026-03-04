@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOverUI.activeInHierarchy)
+        if ((gameOverUI.activeInHierarchy) || (nextLevelUI.activeInHierarchy))
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

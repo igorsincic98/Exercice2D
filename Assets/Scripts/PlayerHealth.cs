@@ -7,15 +7,17 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int _currentHealth;
     [SerializeField] private int _maxHealth;
     [SerializeField] public HealthBarManager _healthBar;
+    [SerializeField] private AudioClip damageSoundClip;
     public float invulnerableFrames;
     public GameManager gameManager;
     private bool isDead = false;
-
+    private AudioSource audioSource;
     private void Awake()
     {
         _currentHealth = _maxHealth;
         _healthBar.SetMaxHealth(_maxHealth);
         invulnerableFrames = 0;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -30,6 +32,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (invulnerableFrames <= 0)
         {
+            audioSource.clip = damageSoundClip;
+            audioSource.Play();
         _currentHealth -= damage;
         invulnerableFrames = 3;
         
