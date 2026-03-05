@@ -25,10 +25,10 @@ public class ScoreManager : MonoBehaviour
         _scoreString = Score.ToString();
         
         // formatter pour que _scoreString ait 5 caractères
-        int _scoreLength = 5 - _scoreString.Length;
+        int scoreLength = 5 - _scoreString.Length;
 
         int i = 0;
-        while (i < _scoreLength)
+        while (i < scoreLength)
         {
             _scoreString = "0" +  _scoreString;
             i++;

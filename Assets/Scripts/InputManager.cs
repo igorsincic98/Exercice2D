@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public static Vector2 Movement;
+    public float _speed;
     
     private PlayerInput _playerInput;
 
@@ -12,11 +13,12 @@ public class InputManager : MonoBehaviour
     {
         _playerInput = GetComponent<PlayerInput>();
         _moveAction = _playerInput.actions["Move"];
-        
+        _speed = 1f;
+
     }
 
     void Update()
     {
-        Movement = _moveAction.ReadValue<Vector2>();
+        Movement = _moveAction.ReadValue<Vector2>() * _speed;
     }
 }

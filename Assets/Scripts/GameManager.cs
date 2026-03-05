@@ -6,9 +6,12 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
 
     public GameObject nextLevelUI;
+    
+    private bool _gameIsPaused;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _gameIsPaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -26,6 +29,23 @@ public class GameManager : MonoBehaviour
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_gameIsPaused == false)
+            {
+                Pause();
+            }
+            else
+            {
+                Play();
+            }
         }
     }
 
@@ -53,11 +73,13 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        _gameIsPaused = true;
         Time.timeScale = 0;
     }
 
     public void Play()
     {
+        _gameIsPaused = false;
         Time.timeScale = 1;
     }
 

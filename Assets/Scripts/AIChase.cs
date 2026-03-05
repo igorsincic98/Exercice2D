@@ -9,13 +9,13 @@ public class AIChase : MonoBehaviour
     private float distance;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (player)
         {

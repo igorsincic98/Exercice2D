@@ -17,6 +17,7 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField]
     private Transform[] _spawnPoints;
     public Random Random = new Random();
+    private float _speed;
 
 
 
@@ -24,6 +25,7 @@ public class SpawnerManager : MonoBehaviour
     void Start()
     {
         _spawnRate = Random.Next(_spawnRateMin, _spawnRateMax);
+        _speed = 0f;
     }
 
     // Update is called once per frame
@@ -40,7 +42,6 @@ public class SpawnerManager : MonoBehaviour
             instantiated.transform.position = randomPoint.position;
             _spawnTimer = 0;
             _spawnRate = Random.Next(_spawnRateMin, _spawnRateMax);
-
 
 
         }
